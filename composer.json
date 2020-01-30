@@ -1,5 +1,5 @@
 {
-    "name": "shiptor-russia/api-client",
+    "name": "metaship-ru/shiptor-api-client",
     "license": "MIT",
     "type": "library",
     "description": "Shiptor Russia Api client",
