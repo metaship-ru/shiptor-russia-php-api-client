@@ -22,6 +22,8 @@ class AddPackage extends GenericShippingRequest{
             ->String("external_id")->add()
             ->Collection("departure")
                 ->Number("shipping_method")->setRequired()->add()
+                ->Number("delivery_time")->add()
+                ->String("delivery_time_string")->add()
                 ->Number("delivery_point")->add()
                 ->Boolean("cashless_payment")->add()
                 ->String("comment")->add()
@@ -142,6 +144,14 @@ class AddPackage extends GenericShippingRequest{
     }
     public function setComment($comment){
         $this->getDeparture()->get("comment")->setValue($comment);
+        return $this;
+    }
+    public function setDeliveryTime($deliveryTime){
+        $this->getDeparture()->setValue($deliveryTime);
+        return $this;
+    }
+    public function setDeliveryTimeString($deliveryTimeString){
+        $this->getDeparture()->setValue($deliveryTimeString);
         return $this;
     }
     public function setCountryCode($code){
