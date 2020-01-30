@@ -147,11 +147,11 @@ class AddPackage extends GenericShippingRequest{
         return $this;
     }
     public function setDeliveryTime($deliveryTime){
-        $this->getDeparture()->setValue($deliveryTime);
+        $this->getDeparture()->get("delivery_time")->setValue($deliveryTime);
         return $this;
     }
     public function setDeliveryTimeString($deliveryTimeString){
-        $this->getDeparture()->setValue($deliveryTimeString);
+        $this->getDeparture()->get("delivery_time_string")->setValue($deliveryTimeString);
         return $this;
     }
     public function setCountryCode($code){
