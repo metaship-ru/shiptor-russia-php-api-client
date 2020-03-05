@@ -24,6 +24,7 @@ class AddPackage extends GenericShippingRequest{
                 ->Number("shipping_method")->setRequired()->add()
                 ->Number("delivery_time")->add()
                 ->String("delivery_time_string")->add()
+                ->String("delayed_delivery_at")->add()
                 ->Number("delivery_point")->add()
                 ->Boolean("cashless_payment")->add()
                 ->String("comment")->add()
@@ -152,6 +153,10 @@ class AddPackage extends GenericShippingRequest{
     }
     public function setDeliveryTimeString($deliveryTimeString){
         $this->getDeparture()->get("delivery_time_string")->setValue($deliveryTimeString);
+        return $this;
+    }
+    public function setDelayedDeliveryAt($delayedDeliveryAt){
+        $this->getDeparture()->get("delayed_delivery_at")->setValue($delayedDeliveryAt);
         return $this;
     }
     public function setCountryCode($code){
