@@ -25,7 +25,6 @@ abstract class GenericRequest{
     }
     public function send(){
         try{
-            $this->validate();
             $data = $this->getFieldsCollection()->toArray();
             $client = $this->getClient();
             return $this->setResponse($client->call($this->getMethodName(),$data));
