@@ -46,6 +46,7 @@ abstract class Client{
             $request = $this->client->post($this->apiUrl, [
                 'headers' => $this->headers,
                 'body' => json_encode($data),
+                'timeout' => 60
             ]);
             $this->setLastTimestamp();
             if($request instanceof \Psr\Http\Message\ResponseInterface){//GuzzleHttp 6.3
