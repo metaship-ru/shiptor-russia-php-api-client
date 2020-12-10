@@ -9,7 +9,10 @@ class Product extends Custom{
                 ->String("shopArticle")->setRequired()->add()
                 ->Number("count")->setRequired()->add()
                 ->Number("price")->setRequired()->add()
-                ->Number("vat")->add();
+                ->Number("vat")->add()
+                ->String("supplier_INN")->add()
+                ->String("supplier_name")->add()
+                ->String("supplier_phone")->add();
     }
     public function setShopArticle($article){
         $this->getFieldsCollection()->get('shopArticle')->setValue($article);
@@ -27,6 +30,29 @@ class Product extends Custom{
         $this->getFieldsCollection()->get('vat')->setValue($vat);
         return $this;
     }
+
+    /**
+     * @param string       $inn
+     * @param string|null  $name
+     * @param integer|null $phone
+     *
+     * @return Product
+     */
+    public function setSupplier($inn, $name = null, $phone = null)
+    {
+        $this->getFieldsCollection()->get('supplier_INN')->setValue($inn);
+
+        if ($name) {
+            $this->getFieldsCollection()->get('supplier_name')->setValue($name);
+        }
+
+        if ($phone) {
+            $this->getFieldsCollection()->get('supplier_phone')->setValue($phone);
+        }
+
+        return $this;
+    }
+    
     public function checkSingleValue($value){
         return is_array($value);
     }
